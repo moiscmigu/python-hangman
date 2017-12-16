@@ -1,46 +1,43 @@
 
+
 import random
 
-
-answerList = ['world', 'look', 'hello', 'goodbye']
+answerList = ['toy', 'plane', 'bannana', 'wedding',
+              'computer', 'christmas']
 
 random.shuffle(answerList)
 
-
 answer = list(answerList[0])
 
-print("This is the word: ", answer)
 
 display = []
 
 display.extend(answer)
-for i in range(len(display)):
+
+for i in range(len(answer)):
+
     display[i] = "_"
 
 
-print("display after loop: ", display)
 
 print(" ".join(display))
-print()
 
+correctAnswerCount = 0
 
-count = 0
-
-while count < len(display):
-    guess = input("Please guess a letter: ")
-
-    guess = guess.lower()
-    print(count)
+while correctAnswerCount < len(answer):
+    print("Correct answerCount: {}/{} \n".format(correctAnswerCount, len(answer)))
+git 
+    guess = input("Please enter a letter: ").lower()
 
     for i in range(len(answer)):
 
         if answer[i] == guess:
             display[i] = guess
-            count += 1
+            correctAnswerCount += 1
+
 
 
     print(" ".join(display))
-    print()
+    print("=============================")
 
-
-print("Well done you've guessed the word")
+print("Nice job, you guessed the word!")
