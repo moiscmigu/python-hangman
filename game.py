@@ -15,29 +15,9 @@
 
 import random
 
-def getRandom():
-    # will get a random word out of list of words
-
-    answerList = ['toy', 'plane', 'bannana', 'wedding',
+answerList = ['toy', 'plane', 'bannana', 'wedding',
                 'computer']
 
-    random.shuffle(answerList)
-
-    answer = list(answerList[0])
-
-    return answer
-
-
-def parseGuess(guess):
-
-
-    guess = list(guess)
-
-
-    if len(guess) == 1:
-        return True
-    else:
-        return False
 
 
 def playAgain(stats):
@@ -57,7 +37,8 @@ def playAgain(stats):
 def game():
 
     correctAnswerCount = 0
-    answer = getRandom()
+    answer = random.choice(answerList)
+
 
     usedLetters = []
 
@@ -91,7 +72,7 @@ def game():
 
 
         # CHECK TO SEE IF THE USER ONLY ENTERED ONE LETTER
-        if parseGuess(guess):
+        if len(guess) == 1:
 
             usedLetters.append(guess)
 
